@@ -20,14 +20,11 @@
             "noMatch": "No match for: {}",
             "space": "Space",
             "fxPrefix": "FX_",
-           "pos": "Pos",
-           "offsetMinus": "Offset -",
-           "offsetPlus": "Offset +",
-            "playStop": "Play/Stop",
-            "fxMode": "VFX/SFX",
             "pos": "Pos",
             "offsetMinus": "Offset -",
-            "offsetPlus": "Offset +"
+            "offsetPlus": "Offset +",
+            "playStop": "Play/Stop",
+            "fxMode": "VFX/SFX"
         }
     },
     "template": {
