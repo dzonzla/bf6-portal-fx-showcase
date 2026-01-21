@@ -1,0 +1,379 @@
+{
+    "Portal_Dynamic": [
+        {
+            "name": "TEAM_1_HQ",
+            "AltTeam": "TeamNeutral",
+            "ObjId": 1,
+            "InfantrySpawns": [
+                "TEAM_1_HQ/SpawnPoint_1_1",
+                "TEAM_1_HQ/SpawnPoint_1_2",
+                "TEAM_1_HQ/SpawnPoint_1_3",
+                "TEAM_1_HQ/SpawnPoint_1_4"
+            ],
+            "HQArea": "TEAM_1_HQ/HQ_Team1",
+            "type": "HQ_PlayerSpawner",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -30.0207,
+                "y": 32.4003,
+                "z": -132.861
+            },
+            "id": "TEAM_1_HQ",
+            "linked": [
+                "HQArea",
+                "InfantrySpawns"
+            ]
+        },
+        {
+            "name": "HQ_Team1",
+            "type": "PolygonVolume",
+            "id": "TEAM_1_HQ/HQ_Team1",
+            "height": 0,
+            "points": [
+                {
+                    "x": -25.0207,
+                    "y": 37.4003,
+                    "z": -127.861
+                },
+                {
+                    "x": -25.0207,
+                    "y": 37.4003,
+                    "z": -137.861
+                },
+                {
+                    "x": -35.0207,
+                    "y": 37.4003,
+                    "z": -137.861
+                },
+                {
+                    "x": -35.0207,
+                    "y": 37.4003,
+                    "z": -127.861
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_1_1",
+            "type": "SpawnPoint",
+            "right": {
+                "x": 0.999884,
+                "y": 0,
+                "z": 0.0152535
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.0152535,
+                "y": 0,
+                "z": 0.999884
+            },
+            "position": {
+                "x": -30.0207,
+                "y": 32.4003,
+                "z": -135.861
+            },
+            "id": "TEAM_1_HQ/SpawnPoint_1_1"
+        },
+        {
+            "name": "SpawnPoint_1_2",
+            "type": "SpawnPoint",
+            "right": {
+                "x": -0.9995,
+                "y": 0,
+                "z": 0.0316198
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.0316198,
+                "y": 0,
+                "z": -0.9995
+            },
+            "position": {
+                "x": -27.0207,
+                "y": 32.4003,
+                "z": -132.861
+            },
+            "id": "TEAM_1_HQ/SpawnPoint_1_2"
+        },
+        {
+            "name": "SpawnPoint_1_3",
+            "type": "SpawnPoint",
+            "right": {
+                "x": -0.0428871,
+                "y": 0,
+                "z": -0.99908
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0.99908,
+                "y": 0,
+                "z": -0.0428871
+            },
+            "position": {
+                "x": -33.0207,
+                "y": 32.4003,
+                "z": -132.861
+            },
+            "id": "TEAM_1_HQ/SpawnPoint_1_3"
+        },
+        {
+            "name": "SpawnPoint_1_4",
+            "type": "SpawnPoint",
+            "right": {
+                "x": 0.0841819,
+                "y": 0,
+                "z": 0.99645
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.99645,
+                "y": 0,
+                "z": 0.0841819
+            },
+            "position": {
+                "x": -30.0207,
+                "y": 32.4003,
+                "z": -129.861
+            },
+            "id": "TEAM_1_HQ/SpawnPoint_1_4"
+        },
+        {
+            "name": "CombatArea",
+            "CombatVolume": "CombatArea/CombatVolume",
+            "type": "CombatArea",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "id": "CombatArea",
+            "linked": [
+                "CombatVolume"
+            ]
+        },
+        {
+            "name": "CombatVolume",
+            "type": "PolygonVolume",
+            "id": "CombatArea/CombatVolume",
+            "height": 0,
+            "points": [
+                {
+                    "x": -450,
+                    "y": 43.0489,
+                    "z": -450
+                },
+                {
+                    "x": -450,
+                    "y": 43.0489,
+                    "z": 450
+                },
+                {
+                    "x": 450,
+                    "y": 43.0489,
+                    "z": 450
+                },
+                {
+                    "x": 450,
+                    "y": 43.0489,
+                    "z": -450
+                }
+            ]
+        },
+        {
+            "name": "DeployCam",
+            "type": "DeployCam",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 0.101056,
+                "z": -0.994881
+            },
+            "front": {
+                "x": 0,
+                "y": 0.994881,
+                "z": 0.101056
+            },
+            "position": {
+                "x": 0,
+                "y": 383.15,
+                "z": 0
+            },
+            "id": "Camera3D/DeployCam"
+        },
+        {
+            "name": "FiringRange_Table_03",
+            "type": "FiringRange_Table_01",
+            "right": {
+                "x": -4.37114e-08,
+                "y": 0,
+                "z": 1
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -1,
+                "y": 0,
+                "z": -4.37114e-08
+            },
+            "position": {
+                "x": -19.7016,
+                "y": 32.4729,
+                "z": -128.712
+            },
+            "id": "FiringRange_Table_03"
+        },
+        {
+            "name": "FiringRange_Table_04",
+            "type": "FiringRange_Table_01",
+            "right": {
+                "x": -4.37114e-08,
+                "y": 0,
+                "z": 1
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -1,
+                "y": 0,
+                "z": -4.37114e-08
+            },
+            "position": {
+                "x": -19.7016,
+                "y": 32.4729,
+                "z": -131.462
+            },
+            "id": "FiringRange_Table_04"
+        },
+        {
+            "name": "FiringRange_Table_05",
+            "type": "FiringRange_Table_01",
+            "right": {
+                "x": -4.37114e-08,
+                "y": 0,
+                "z": 1
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -1,
+                "y": 0,
+                "z": -4.37114e-08
+            },
+            "position": {
+                "x": -19.7016,
+                "y": 32.4729,
+                "z": -134.224
+            },
+            "id": "FiringRange_Table_05"
+        }
+    ],
+    "Static": [
+        {
+            "name": "MP_Portal_Sand_Terrain",
+            "type": "MP_Portal_Sand_Terrain",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "id": "Static/MP_Portal_Sand_Terrain"
+        },
+        {
+            "name": "MP_Portal_Sand_Assets",
+            "type": "MP_Portal_Sand_Assets",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "id": "Static/MP_Portal_Sand_Assets"
+        }
+    ]
+}
