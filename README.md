@@ -8,7 +8,7 @@ This project is based on the Battlefield 6 Portal TypeScript template by Michael
 
 ## What is This?
 
-This project enumerates the `RuntimeSpawn_Common` assets from `bf6-portal-mod-types` at build time, then provides an in-game UI to search/select and play/stop them.
+This project enumerates the `RuntimeSpawn_Common` assets from `bf6-portal-mod-types` at build time, then provides an in-game UI to search/select and play/stop them. There are not many map specific FXs but the code can be modified easily to do a showcase for map specific FXs on a specific map.
 
 ## Prerequisites
 
@@ -64,12 +64,14 @@ This creates two files in the `dist/` folder:
 
 - The UI is intended for the first/solo player (ObjId 0).
 - Use the top buttons to open Search and to Play/Stop quickly.
-- If your level includes an InteractPoint with ObjId `1000`, it toggles Play/Stop.
+- To go into cursor mode tripple tap the interact button (E).
 - FX are spawned at a fixed base position (see `FX_POSITION` in `src/index.ts`) with X-only offset controls in the UI.
+- Sandbox spatial included
 
 ## Development
 
 - Regenerate the FX/SFX lists: `npm run generate-fx`
+- NOTE: right now the fx list generates from the RuntimeSpawn_Common only but can be configured for all the  other maps.
 - Build: `npm run build`
 - Lint/format: `npm run lint`, `npm run prettier`
 
