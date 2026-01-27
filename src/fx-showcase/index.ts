@@ -42,9 +42,11 @@ export class FxShowcase {
     private _mode: FxShowcase.Mode;
     private _index: number = 0;
 
+    private readonly _initialBasePosition: mod.Vector;
     private _basePosition: mod.Vector;
     private _positionIndex: number = 0;
     private _offsetStepIndex: number = 1;
+    private _verticalOffset: number = 0;
 
     private _activeSpawned: mod.Object | mod.VFX | undefined;
     private _activePlayedSound: Sounds.PlayedSound | undefined;
@@ -59,6 +61,7 @@ export class FxShowcase {
 
     public constructor(player: mod.Player, basePosition: mod.Vector, interactIds: FxShowcase.InteractIds) {
         this._player = player;
+        this._initialBasePosition = basePosition;
         this._basePosition = basePosition;
         this._interactIds = interactIds;
 
@@ -151,7 +154,7 @@ export class FxShowcase {
             textColor: UI.COLORS.BF_YELLOW_BRIGHT,
         });
 
-        // Control row A: Back/Clear + offset controls.
+        // Control row A: Back/Clear + horizontal offset controls.
         void new UI.TextButton({
             parent: this._searchContainer,
             x: 10,
@@ -240,6 +243,79 @@ export class FxShowcase {
             textColor: UI.COLORS.BF_YELLOW_BRIGHT,
             onClick: async (): Promise<void> => {
                 this.cyclePosition();
+            },
+            receiver: player,
+        });
+
+        // Control row C: Vertical offset controls (height).
+        void new UI.TextButton({
+            parent: this._searchContainer,
+            x: 10,
+            y: 152,
+            width: 160,
+            height: 34,
+            anchor: mod.UIAnchor.TopLeft,
+            bgColor: UI.COLORS.GREY_25,
+            baseColor: UI.COLORS.BLACK,
+            message: mod.Message(mod.stringkeys.fxShowcase.search.heightMinus),
+            textSize: 20,
+            textColor: UI.COLORS.BF_YELLOW_BRIGHT,
+            onClick: async (): Promise<void> => {
+                this.heightMinus();
+            },
+            receiver: player,
+        });
+
+        void new UI.TextButton({
+            parent: this._searchContainer,
+            x: 180,
+            y: 152,
+            width: 160,
+            height: 34,
+            anchor: mod.UIAnchor.TopLeft,
+            bgColor: UI.COLORS.GREY_25,
+            baseColor: UI.COLORS.BLACK,
+            message: mod.Message(mod.stringkeys.fxShowcase.search.heightPlus),
+            textSize: 20,
+            textColor: UI.COLORS.BF_YELLOW_BRIGHT,
+            onClick: async (): Promise<void> => {
+                this.heightPlus();
+            },
+            receiver: player,
+        });
+
+        void new UI.TextButton({
+            parent: this._searchContainer,
+            x: 350,
+            y: 152,
+            width: 160,
+            height: 34,
+            anchor: mod.UIAnchor.TopLeft,
+            bgColor: UI.COLORS.GREY_25,
+            baseColor: UI.COLORS.BLACK,
+            message: mod.Message(mod.stringkeys.fxShowcase.search.heightReset),
+            textSize: 20,
+            textColor: UI.COLORS.BF_GREEN_BRIGHT,
+            onClick: async (): Promise<void> => {
+                this.heightReset();
+            },
+            receiver: player,
+        });
+
+        void new UI.TextButton({
+            parent: this._searchContainer,
+            x: 520,
+            y: 152,
+            width: 160,
+            height: 34,
+            anchor: mod.UIAnchor.TopLeft,
+            bgColor: UI.COLORS.GREY_25,
+            baseColor: UI.COLORS.BLACK,
+            message: mod.Message(mod.stringkeys.fxShowcase.search.resetPosition),
+            textSize: 20,
+            textColor: UI.COLORS.BF_GREEN_BRIGHT,
+            onClick: async (): Promise<void> => {
+                this.resetPositionAndOffsets();
             },
             receiver: player,
         });
@@ -387,7 +463,8 @@ export class FxShowcase {
             });
         };
 
-        const y0 = 154;
+        // Leave room for the control rows above.
+        const y0 = 196;
 
         const row1 = 'QWERTYUIOP';
         const row2 = 'ASDFGHJKL';
@@ -563,6 +640,36 @@ export class FxShowcase {
         this._refreshHud();
     }
 
+    public heightMinus(): void {
+        const step = FxShowcase._OFFSET_STEPS[this._offsetStepIndex] ?? 5;
+        this._verticalOffset -= step;
+        this._moveActiveToCurrentPosition();
+        this._refreshHud();
+    }
+
+    public heightPlus(): void {
+        const step = FxShowcase._OFFSET_STEPS[this._offsetStepIndex] ?? 5;
+        this._verticalOffset += step;
+        this._moveActiveToCurrentPosition();
+        this._refreshHud();
+    }
+
+    public heightReset(): void {
+        this._verticalOffset = 0;
+        this._moveActiveToCurrentPosition();
+        this._refreshHud();
+    }
+
+    public resetPositionAndOffsets(): void {
+        this._basePosition = this._initialBasePosition;
+        this._positionIndex = 0;
+        this._offsetStepIndex = 1;
+        this._verticalOffset = 0;
+
+        this._moveActiveToCurrentPosition();
+        this._refreshHud();
+    }
+
     public next(): void {
         this.stop();
 
@@ -652,19 +759,20 @@ export class FxShowcase {
 
         const sfxAsset = RuntimeSpawnCommonSfxAssets[this._index];
         const sfxName = RuntimeSpawnCommonSfxNames[this._index] ?? 'SFX_Unknown';
-        // Determine if the SFX is a loop by name convention.
-        const isLoop = /Loop/i.test(sfxName);
+        void sfxName;
+
+        const durationMs = 4500;
 
         this._activePlayedSound = Sounds.play3D(sfxAsset, position, {
             amplitude: 1.25,
             attenuationRange: 90,
-            duration: isLoop ? 8000 : 4500,
+            duration: durationMs,
         });
 
         // Ensure we flip back to "stopped" state when the sound ends.
         this._autoStopTimeoutId = Timers.setTimeout(() => {
             this._stopCore();
-        }, isLoop ? 8200 : 4700);
+        }, durationMs + 200);
     }
 
     private _stopCore(): void {
@@ -718,7 +826,7 @@ export class FxShowcase {
             x = FxShowcase._MIN_X_WHEN_BASE_NEGATIVE;
         }
 
-        return mod.CreateVector(x, baseY, baseZ);
+        return mod.CreateVector(x, baseY + this._verticalOffset, baseZ);
     }
 
     private _moveActiveToCurrentPosition(): void {
@@ -741,6 +849,12 @@ export class FxShowcase {
         return `${this._positionIndex === 1 ? '+' : '-'}${step}`;
     }
 
+    private _offsetYStr(): string {
+        const step = FxShowcase._OFFSET_STEPS[this._offsetStepIndex] ?? 5;
+        if (this._verticalOffset === 0) return `0 (step=${step})`;
+        return `${this._verticalOffset > 0 ? '+' : ''}${this._verticalOffset} (step=${step})`;
+    }
+
     private _refreshHud(): void {
         const isAdmin = mod.GetObjId(this._player) === 0;
 
@@ -752,7 +866,10 @@ export class FxShowcase {
         this._hud.log(`FX Showcase (admin=${isAdmin})`, 0);
         this._hud.log(`Mode: ${this._mode}  Index: ${this._index + 1}/${this._countForMode()}`, 1);
         this._hud.log(`Base: ${getVectorString(this._basePosition)}`, 2);
-        this._hud.log(`OffsetX: ${this._offsetXStr()}   Spawn: ${getVectorString(this._currentPosition())}`, 3);
+        this._hud.log(
+            `OffsetX: ${this._offsetXStr()}  OffsetY: ${this._offsetYStr()}   Spawn: ${getVectorString(this._currentPosition())}`,
+            3
+        );
         this._hud.log(
             `State: ${this._isPlaying() ? 'PLAYING' : 'STOPPED'}  Auto-cycle: ${this._autoCycleIntervalId !== undefined ? 'ON' : 'OFF'}`,
             4
@@ -770,7 +887,7 @@ export class FxShowcase {
             this._searchStatus.log(`Search query: ${query}`, 0);
             this._searchStatus.log(`Mode: ${mode}`, 1);
             this._searchStatus.log(
-                `OffsetX: ${this._offsetXStr()}   Pos slot: ${this._positionIndex + 1}/3 | Tap keys | Back/Clear | Match +/-`,
+                `OffsetX: ${this._offsetXStr()}  OffsetY: ${this._offsetYStr()}   Pos slot: ${this._positionIndex + 1}/3 | Tap keys | Back/Clear | Match +/-`,
                 2
             );
         }

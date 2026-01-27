@@ -23,6 +23,10 @@
             "pos": "Pos",
             "offsetMinus": "Offset -",
             "offsetPlus": "Offset +",
+            "heightMinus": "Height -",
+            "heightPlus": "Height +",
+            "heightReset": "Height 0",
+            "resetPosition": "Reset Pos",
             "playStop": "Play/Stop",
             "fxMode": "VFX/SFX"
         }
