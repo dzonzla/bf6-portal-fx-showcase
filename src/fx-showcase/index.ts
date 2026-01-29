@@ -436,13 +436,7 @@ export class FxShowcase {
         const keyH = 32;
         const gap = 6;
 
-        const addKey = (
-            charToAdd: string,
-            label: mod.Message,
-            x: number,
-            y: number,
-            width: number = keyW
-        ): void => {
+        const addKey = (charToAdd: string, label: mod.Message, x: number, y: number, width: number = keyW): void => {
             void new UI.TextButton({
                 parent: this._searchContainer,
                 x,
@@ -483,19 +477,34 @@ export class FxShowcase {
         // Letters row 2
         for (let i = 0; i < row2.length; i++) {
             const ch = row2[i];
-            addKey(ch, mod.Message(mod.stringkeys.logger.chars[ch]), startX(row2.length) + i * (keyW + gap), y0 + (keyH + gap));
+            addKey(
+                ch,
+                mod.Message(mod.stringkeys.logger.chars[ch]),
+                startX(row2.length) + i * (keyW + gap),
+                y0 + (keyH + gap)
+            );
         }
 
         // Letters row 3
         for (let i = 0; i < row3.length; i++) {
             const ch = row3[i];
-            addKey(ch, mod.Message(mod.stringkeys.logger.chars[ch]), startX(row3.length) + i * (keyW + gap), y0 + 2 * (keyH + gap));
+            addKey(
+                ch,
+                mod.Message(mod.stringkeys.logger.chars[ch]),
+                startX(row3.length) + i * (keyW + gap),
+                y0 + 2 * (keyH + gap)
+            );
         }
 
         // Digits row
         for (let i = 0; i < row4.length; i++) {
             const ch = row4[i];
-            addKey(ch, mod.Message(mod.stringkeys.logger.chars[ch]), startX(row4.length) + i * (keyW + gap), y0 + 3 * (keyH + gap));
+            addKey(
+                ch,
+                mod.Message(mod.stringkeys.logger.chars[ch]),
+                startX(row4.length) + i * (keyW + gap),
+                y0 + 3 * (keyH + gap)
+            );
         }
 
         // Bottom row: FX_/SFX_ shortcuts + '_' + '-' + Space (wide)
@@ -578,8 +587,7 @@ export class FxShowcase {
             i = (i + direction + count) % count;
 
             const name = (names[i] ?? '').toLowerCase();
-            const ok =
-                this._searchMode === 'contains' ? name.indexOf(needle) >= 0 : name.indexOf(needle) === 0;
+            const ok = this._searchMode === 'contains' ? name.indexOf(needle) >= 0 : name.indexOf(needle) === 0;
 
             if (!ok) continue;
 
@@ -759,9 +767,10 @@ export class FxShowcase {
 
         const sfxAsset = RuntimeSpawnCommonSfxAssets[this._index];
         const sfxName = RuntimeSpawnCommonSfxNames[this._index] ?? 'SFX_Unknown';
-        void sfxName;
-
-        const durationMs = 4500;
+        // Native-looping SFX usually include "Loop" in their name. We still want them capped,
+        // just with a longer preview window.
+        const isNativeLoop = /Loop/i.test(sfxName);
+        const durationMs = isNativeLoop ? 8000 : 4500;
 
         this._activePlayedSound = Sounds.play3D(sfxAsset, position, {
             amplitude: 1.25,
@@ -805,8 +814,8 @@ export class FxShowcase {
 
     private _currentName(): string {
         return this._mode === 'VFX'
-            ? RuntimeSpawnCommonVfxNames[this._index] ?? 'VFX_Unknown'
-            : RuntimeSpawnCommonSfxNames[this._index] ?? 'SFX_Unknown';
+            ? (RuntimeSpawnCommonVfxNames[this._index] ?? 'VFX_Unknown')
+            : (RuntimeSpawnCommonSfxNames[this._index] ?? 'SFX_Unknown');
     }
 
     private _currentPosition(): mod.Vector {
@@ -818,6 +827,7 @@ export class FxShowcase {
         const baseY = mod.YComponentOf(base);
         const baseZ = mod.ZComponentOf(base);
 
+        
         let x = baseX + offsetX;
 
         // Map-specific safety: if the base position lives on the negative side already,
@@ -827,6 +837,7 @@ export class FxShowcase {
         }
 
         return mod.CreateVector(x, baseY + this._verticalOffset, baseZ);
+
     }
 
     private _moveActiveToCurrentPosition(): void {
@@ -875,10 +886,7 @@ export class FxShowcase {
             4
         );
 
-        this._hud.log(
-            `Search: ${this._searchQuery.length > 0 ? this._searchQuery : '-'} (${this._searchMode})`,
-            7
-        );
+        this._hud.log(`Search: ${this._searchQuery.length > 0 ? this._searchQuery : '-'} (${this._searchMode})`, 7);
         this._hud.log(`Search UI: ${this._searchOpen ? 'OPEN' : 'CLOSED'}`, 8);
 
         if (this._searchOpen) {

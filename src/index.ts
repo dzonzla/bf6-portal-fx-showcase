@@ -13,8 +13,11 @@ let adminFxShowcase: FxShowcase | undefined;
 const INTERACT_PLAY = 1000
 const INTERACT_POS = 1004
 
+// Sandbox map specific
+// const FX_POSITION = [0.609, 32.253, -130.195]
 
-const FX_POSITION = [0.609, 32.253, -130.195]
+// Mirak Valley specific
+const FX_POSITION = [520.807, 71.896, 3.836]
 
 // This will trigger every sever tick.
 export function OngoingGlobal(): void {
