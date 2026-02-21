@@ -55,6 +55,7 @@ export class FxShowcase {
     private _autoCycleMs: number = 2500;
 
     private _autoStopTimeoutId: number | undefined;
+    private _redundantSoundStopTimeoutId: number | undefined;
 
     private static readonly _OFFSET_STEPS: number[] = [2, 5, 10, 20, 35, 60];
     private static readonly _MIN_X_WHEN_BASE_NEGATIVE: number = -17;
@@ -788,8 +789,19 @@ export class FxShowcase {
         Timers.clearTimeout(this._autoStopTimeoutId);
         this._autoStopTimeoutId = undefined;
 
+        Timers.clearTimeout(this._redundantSoundStopTimeoutId);
+        this._redundantSoundStopTimeoutId = undefined;
+
         if (this._activePlayedSound) {
-            this._activePlayedSound.stop();
+            const sound = this._activePlayedSound;
+            sound.stop();
+
+            // Some native-looping / long sounds can occasionally keep playing.
+            // Re-issue the stop shortly after as a best-effort failsafe.
+            this._redundantSoundStopTimeoutId = Timers.setTimeout(() => {
+                sound.stop();
+            }, 250);
+
             this._activePlayedSound = undefined;
         }
 
