@@ -292,6 +292,14 @@ export const RuntimeSpawnCommonVfxAssets: mod.RuntimeSpawn_Common[] = [
     mod.RuntimeSpawn_Common.FX_Rocket_RPG7V2_Trail_SP,
     mod.RuntimeSpawn_Common.FX_ShellEjection_DP12_12g_Buckshot,
     mod.RuntimeSpawn_Common.FX_Smoke_Marker_Custom,
+    mod.RuntimeSpawn_Common.FX_Snow_BlowingSnow_L_01_TerrainSnap,
+    mod.RuntimeSpawn_Common.FX_Snow_BlowingSnow_M_01_TerrainSnap,
+    mod.RuntimeSpawn_Common.FX_Snow_BlowingSnow_S_01,
+    mod.RuntimeSpawn_Common.FX_Snow_BlowingSnow_S_01_inShadow,
+    mod.RuntimeSpawn_Common.FX_Snow_BlowingSnow_XS_01,
+    mod.RuntimeSpawn_Common.FX_Snow_DriftingSnow_Rooftop_Bridge_01,
+    mod.RuntimeSpawn_Common.FX_Snow_DriftingSnow_Rooftop_S_01,
+    mod.RuntimeSpawn_Common.FX_Snow_WhiteLeaves_01,
     mod.RuntimeSpawn_Common.FX_SoldierScreen_HealingStarted,
     mod.RuntimeSpawn_Common.FX_SP_Glint_Collectable,
     mod.RuntimeSpawn_Common.FX_Sparks,
@@ -605,6 +613,14 @@ export const RuntimeSpawnCommonVfxNames: string[] = [
     'FX_Rocket_RPG7V2_Trail_SP',
     'FX_ShellEjection_DP12_12g_Buckshot',
     'FX_Smoke_Marker_Custom',
+    'FX_Snow_BlowingSnow_L_01_TerrainSnap',
+    'FX_Snow_BlowingSnow_M_01_TerrainSnap',
+    'FX_Snow_BlowingSnow_S_01',
+    'FX_Snow_BlowingSnow_S_01_inShadow',
+    'FX_Snow_BlowingSnow_XS_01',
+    'FX_Snow_DriftingSnow_Rooftop_Bridge_01',
+    'FX_Snow_DriftingSnow_Rooftop_S_01',
+    'FX_Snow_WhiteLeaves_01',
     'FX_SoldierScreen_HealingStarted',
     'FX_SP_Glint_Collectable',
     'FX_Sparks',
@@ -2510,6 +2526,6 @@ export const RuntimeSpawnCommonSfxNames: string[] = [
 ];
 
 export const RuntimeSpawnCommonFxStats = {
-    vfxCount: 310,
+    vfxCount: 318,
     sfxCount: 938,
 } as const;

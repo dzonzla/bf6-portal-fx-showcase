@@ -19,6 +19,8 @@ const INTERACT_POS = 1004
 // Mirak Valley specific
 const FX_POSITION = [520.807, 71.896, 3.836]
 
+const GAME_MODE_TIME_LIMIT_SECONDS = 40 * 60
+
 // This will trigger every sever tick.
 export function OngoingGlobal(): void {
     // Do something minimal every tick. Remember, this gets called 30 times per second.
@@ -184,6 +186,7 @@ export function OnGameModeEnding(): void {
 
 // This will trigger at the start of the gamemode.
 export function OnGameModeStarted(): void {
+    mod.SetGameModeTimeLimit(GAME_MODE_TIME_LIMIT_SECONDS);
 }
 
 // This will trigger when a Player is forced into the mandown state.

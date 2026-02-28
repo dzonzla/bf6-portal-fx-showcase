@@ -167,6 +167,177 @@
             "id": "TEAM_1_HQ/SpawnPoint_1_4"
         },
         {
+            "name": "TEAM_2_HQ",
+            "Team": "Team2",
+            "AltTeam": "TeamNeutral",
+            "ObjId": 2,
+            "InfantrySpawns": [
+                "TEAM_2_HQ/SpawnPoint_1_1",
+                "TEAM_2_HQ/SpawnPoint_1_2",
+                "TEAM_2_HQ/SpawnPoint_1_3",
+                "TEAM_2_HQ/SpawnPoint_1_4"
+            ],
+            "HQArea": "TEAM_2_HQ/HQ_Team2",
+            "type": "HQ_PlayerSpawner",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 540.319,
+                "y": 71.7245,
+                "z": 4.95561
+            },
+            "id": "TEAM_2_HQ",
+            "linked": [
+                "HQArea",
+                "InfantrySpawns"
+            ]
+        },
+        {
+            "name": "HQ_Team2",
+            "type": "PolygonVolume",
+            "id": "TEAM_2_HQ/HQ_Team2",
+            "height": 0,
+            "points": [
+                {
+                    "x": 545.319,
+                    "y": 76.7245,
+                    "z": 9.95561
+                },
+                {
+                    "x": 545.319,
+                    "y": 76.7245,
+                    "z": -0.04439
+                },
+                {
+                    "x": 535.319,
+                    "y": 76.7245,
+                    "z": -0.04439
+                },
+                {
+                    "x": 535.319,
+                    "y": 76.7245,
+                    "z": 9.95561
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_1_1",
+            "ObjId": 21,
+            "type": "SpawnPoint",
+            "right": {
+                "x": -4.37114e-08,
+                "y": 0,
+                "z": 1
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -1,
+                "y": 0,
+                "z": -4.37114e-08
+            },
+            "position": {
+                "x": 540.319,
+                "y": 71.7245,
+                "z": 1.95561
+            },
+            "id": "TEAM_2_HQ/SpawnPoint_1_1"
+        },
+        {
+            "name": "SpawnPoint_1_2",
+            "ObjId": 22,
+            "type": "SpawnPoint",
+            "right": {
+                "x": -4.37114e-08,
+                "y": 0,
+                "z": 1
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -1,
+                "y": 0,
+                "z": -4.37114e-08
+            },
+            "position": {
+                "x": 543.319,
+                "y": 71.7245,
+                "z": 4.95561
+            },
+            "id": "TEAM_2_HQ/SpawnPoint_1_2"
+        },
+        {
+            "name": "SpawnPoint_1_3",
+            "ObjId": 23,
+            "type": "SpawnPoint",
+            "right": {
+                "x": -4.37114e-08,
+                "y": 0,
+                "z": 1
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -1,
+                "y": 0,
+                "z": -4.37114e-08
+            },
+            "position": {
+                "x": 537.319,
+                "y": 71.7245,
+                "z": 4.95561
+            },
+            "id": "TEAM_2_HQ/SpawnPoint_1_3"
+        },
+        {
+            "name": "SpawnPoint_1_4",
+            "ObjId": 24,
+            "type": "SpawnPoint",
+            "right": {
+                "x": 0.0841819,
+                "y": 0,
+                "z": 0.99645
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.99645,
+                "y": 0,
+                "z": 0.0841819
+            },
+            "position": {
+                "x": 540.319,
+                "y": 71.7245,
+                "z": 7.95561
+            },
+            "id": "TEAM_2_HQ/SpawnPoint_1_4"
+        },
+        {
             "name": "CombatArea",
             "CombatVolume": "CombatArea/CombatVolume",
             "type": "CombatArea",
@@ -420,12 +591,12 @@
             "id": "FiringRange_Table_02"
         },
         {
-            "name": "FX_AW_Distant_Cluster_Bomb_Line_Outskirts",
-            "type": "FX_AW_Distant_Cluster_Bomb_Line_Outskirts",
+            "name": "ConstructionFloorConcrete_01_512x64x512",
+            "type": "ConstructionFloorConcrete_01_512x64x512",
             "right": {
-                "x": -4.37114e-08,
+                "x": 1,
                 "y": 0,
-                "z": -1
+                "z": 0
             },
             "up": {
                 "x": 0,
@@ -433,16 +604,141 @@
                 "z": 0
             },
             "front": {
-                "x": 1,
+                "x": 0,
                 "y": 0,
-                "z": -4.37114e-08
+                "z": 1
             },
             "position": {
-                "x": 520.807,
-                "y": 71.8963,
-                "z": 3.83585
+                "x": 522.569,
+                "y": 71.7937,
+                "z": 3.80746
             },
-            "id": "FX_AW_Distant_Cluster_Bomb_Line_Outskirts"
+            "id": "ConstructionFloorConcrete_01_512x64x512"
+        },
+        {
+            "name": "ConstructionFloorConcrete_01_512x64x_513",
+            "type": "ConstructionFloorConcrete_01_512x64x512",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 517.449,
+                "y": 71.7937,
+                "z": 3.80746
+            },
+            "id": "ConstructionFloorConcrete_01_512x64x_513"
+        },
+        {
+            "name": "ConstructionFloorConcrete_01_512x64x_514",
+            "type": "ConstructionFloorConcrete_01_512x64x512",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 512.329,
+                "y": 71.7937,
+                "z": 3.80746
+            },
+            "id": "ConstructionFloorConcrete_01_512x64x_514"
+        },
+        {
+            "name": "ConstructionFloorConcrete_01_512x64x_515",
+            "type": "ConstructionFloorConcrete_01_512x64x512",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 512.329,
+                "y": 71.7937,
+                "z": 8.92746
+            },
+            "id": "ConstructionFloorConcrete_01_512x64x_515"
+        },
+        {
+            "name": "ConstructionFloorConcrete_01_512x64x_516",
+            "type": "ConstructionFloorConcrete_01_512x64x512",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 517.449,
+                "y": 71.7937,
+                "z": 8.92746
+            },
+            "id": "ConstructionFloorConcrete_01_512x64x_516"
+        },
+        {
+            "name": "ConstructionFloorConcrete_01_512x64x_517",
+            "type": "ConstructionFloorConcrete_01_512x64x512",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 522.569,
+                "y": 71.7937,
+                "z": 8.92746
+            },
+            "id": "ConstructionFloorConcrete_01_512x64x_517"
         }
     ],
     "Static": [
